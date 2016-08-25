@@ -4,7 +4,7 @@ import { CallbackHandler, $composer } from 'miruken-callback';
 /**
  * Protocol for handling and reporting errors.
  * @class Errors
- * @extends miruken.Protocol
+ * @extends Protocol
  */    
 export const Errors = Protocol.extend({
     /**
@@ -50,8 +50,8 @@ export const Errors = Protocol.extend({
 /**
  * CallbackHandler for handling errors.
  * @class ErrorCallbackHandler
- * @extends miruken.callback.CallbackHandler
- * @uses miruken.error.Errors
+ * @extends CallbackHandler
+ * @uses error.Errors
  */    
 export const ErrorCallbackHandler = CallbackHandler.extend(Errors, {
     handleError(error, context) {
@@ -81,8 +81,8 @@ CallbackHandler.implement({
     /**
      * Marks the callback handler for recovery.
      * @method $recover
-     * @returns {miruken.callback.CallbackHandlerFilter} recovery semantics.
-     * @for miruken.callback.CallbackHandler
+     * @returns {CallbackHandlerFilter} recovery semantics.
+     * @for CallbackHandler
      */        
     $recover(context) {
         return this.filter((callback, composer, proceed) => {
@@ -106,7 +106,7 @@ CallbackHandler.implement({
      * Creates a function to pass error promises to Errors feature.
      * @method $recoverError
      * @returns {Function} function to pass error promises to Errors feature. 
-     * @for miruken.callback.CallbackHandler
+     * @for CallbackHandler
      */        
     $recoverError(context) {
         return error => Errors(this).handleError(error, context);
