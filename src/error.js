@@ -1,5 +1,5 @@
-import { Protocol, $isPromise } from 'miruken-core';
-import { CallbackHandler, $composer } from 'miruken-callback';
+import { Protocol, $isPromise } from "miruken-core";
+import { CallbackHandler, $composer } from "miruken-callback";
 
 /**
  * Protocol for handling and reporting errors.

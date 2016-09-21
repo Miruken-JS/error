@@ -1,7 +1,7 @@
-import { Base, Protocol } from 'miruken-core';
-import { Context } from 'miruken-context';
-import { Errors, ErrorCallbackHandler } from '../src/error';
-import chai from 'chai';
+import { Base, Protocol } from "miruken-core";
+import { Context } from "miruken-context";
+import { Errors, ErrorCallbackHandler } from "../src/error";
+import chai from "chai";
 
 const expect = chai.expect;
 
@@ -10,7 +10,7 @@ describe("ErrorCallbackHandler", function () {
         it("should handle errors", function (done) {
             var context      = new Context,
                 errorHandler = new ErrorCallbackHandler,
-                error        = new Error('passwords do not match');
+                error        = new Error("passwords do not match");
             context.addHandlers(errorHandler);
             Promise.resolve(Errors(context).handleError(error)).then(function () {
                 done();
@@ -20,15 +20,15 @@ describe("ErrorCallbackHandler", function () {
         it("should be able to customize error handling", function (done) {
             var context      = new Context,
                 errorHandler = new ErrorCallbackHandler,
-                error        = new Error('Something bad happended');
+                error        = new Error("Something bad happended");
             context.addHandlers(errorHandler);
             var customize    = context.newChild().extend({
                 reportError: function (error, context) {
-                    return Promise.resolve('custom');
+                    return Promise.resolve("custom");
                 }
             });
             Promise.resolve(Errors(customize).handleError(error)).then(function (result) {
-                expect(result).to.equal('custom');
+                expect(result).to.equal("custom");
                 done();
             });
         });
@@ -38,7 +38,7 @@ describe("ErrorCallbackHandler", function () {
         it("should handle exceptions", function (done) {
             var context      = new Context,
                 errorHandler = new ErrorCallbackHandler,
-                exception    = new TypeError('Expected a string argument');
+                exception    = new TypeError("Expected a string argument");
             context.addHandlers(errorHandler);
             Promise.resolve(Errors(context).handleException(exception)).then(function () {
                 done();
@@ -69,7 +69,7 @@ describe("CallbackHandler", function () {
             var context      = new Context,
                 errorHandler = new ErrorCallbackHandler;
             context.addHandlers(new Paymentech, errorHandler);
-            Payments(context.$recover()).validateCard({number:'1234'});
+            Payments(context.$recover()).validateCard({number:"1234"});
         });
 
         it("should implicitly recover from errors asynchronously", function (done) {
@@ -89,12 +89,12 @@ describe("CallbackHandler", function () {
             context.addHandlers(new Paymentech, errorHandler);
             var customize    = context.newChild().extend({
                 reportError: function (error, context) {
-                    return Promise.resolve('custom');
+                    return Promise.resolve("custom");
                 }
             });
             var pay = Payments(customize.$recover()).processPayment({amount:1000});
             Promise.resolve(pay).then(function (result) {
-                expect(result).to.equal('custom');
+                expect(result).to.equal("custom");
                 done();
             });
         });
@@ -117,13 +117,13 @@ describe("CallbackHandler", function () {
             context.addHandlers(new Paymentech, errorHandler);
             var customize    = context.newChild().extend({
                 reportError: function (error, context) {
-                    return Promise.resolve('custom');
+                    return Promise.resolve("custom");
                 }
             });
             var pay = Payments(context).processPayment({amount:1000})
                 .catch(customize.$recoverError());
             Promise.resolve(pay).then(function (result) {
-                expect(result).to.equal('custom');
+                expect(result).to.equal("custom");
                 done();
             });
         });
