@@ -1,5 +1,5 @@
 import { Protocol, $isPromise } from "miruken-core";
-import { CallbackHandler, $composer } from "miruken-callback";
+import { Handler, $composer } from "miruken-callback";
 
 /**
  * Protocol for handling and reporting errors.
@@ -48,12 +48,12 @@ export const Errors = Protocol.extend({
 });
 
 /**
- * CallbackHandler for handling errors.
- * @class ErrorCallbackHandler
- * @extends CallbackHandler
- * @uses error.Errors
+ * Error handler.
+ * @class ErrorHandler
+ * @extends Handler
+ * @uses Errors
  */    
-export const ErrorCallbackHandler = CallbackHandler.extend(Errors, {
+export const ErrorHandler = Handler.extend(Errors, {
     handleError(error, context) {
         const result = Errors($composer).reportError(error, context);
         return result === undefined
@@ -77,12 +77,12 @@ export const ErrorCallbackHandler = CallbackHandler.extend(Errors, {
     clearErrors(context) {} 
 });
 
-CallbackHandler.implement({
+Handler.implement({
     /**
-     * Marks the callback handler for recovery.
+     * Marks the handler for recovery.
      * @method $recover
-     * @returns {CallbackHandlerFilter} recovery semantics.
-     * @for CallbackHandler
+     * @returns {HandlerFilter} recovery semantics.
+     * @for Handler
      */        
     $recover(context) {
         return this.filter((callback, composer, proceed) => {
@@ -106,7 +106,7 @@ CallbackHandler.implement({
      * Creates a function to pass error promises to Errors feature.
      * @method $recoverError
      * @returns {Function} function to pass error promises to Errors feature. 
-     * @for CallbackHandler
+     * @for Handler
      */        
     $recoverError(context) {
         return error => Errors(this).handleError(error, context);
