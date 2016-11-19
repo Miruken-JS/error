@@ -1,4 +1,5 @@
-define(['exports', 'miruken-core', 'miruken-callback'], function (exports, mirukenCore, mirukenCallback) { 'use strict';
+(function (exports,mirukenCore,mirukenCallback) {
+'use strict';
 
 var Errors = mirukenCore.Protocol.extend({
     handleError: function handleError(error, context) {},
@@ -60,6 +61,4 @@ mirukenCallback.Handler.implement({
 exports.Errors = Errors;
 exports.ErrorHandler = ErrorHandler;
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-});
+}((this.miruken-error = this.miruken-error || {}),mirukenCore,mirukenCallback));

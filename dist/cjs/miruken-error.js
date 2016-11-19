@@ -1,15 +1,11 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.ErrorCallbackHandler = exports.Errors = undefined;
+Object.defineProperty(exports, '__esModule', { value: true });
 
-var _mirukenCore = require('miruken-core');
+var mirukenCore = require('miruken-core');
+var mirukenCallback = require('miruken-callback');
 
-var _mirukenCallback = require('miruken-callback');
-
-var Errors = exports.Errors = _mirukenCore.Protocol.extend({
+var Errors = mirukenCore.Protocol.extend({
     handleError: function handleError(error, context) {},
     handleException: function handleException(exception, context) {},
     reportError: function reportError(error, context) {},
@@ -17,13 +13,13 @@ var Errors = exports.Errors = _mirukenCore.Protocol.extend({
     clearErrors: function clearErrors(context) {}
 });
 
-var ErrorCallbackHandler = exports.ErrorCallbackHandler = _mirukenCallback.CallbackHandler.extend(Errors, {
+var ErrorHandler = mirukenCallback.Handler.extend(Errors, {
     handleError: function handleError(error, context) {
-        var result = Errors(_mirukenCallback.$composer).reportError(error, context);
+        var result = Errors(mirukenCallback.$composer).reportError(error, context);
         return result === undefined ? Promise.reject(error) : Promise.resolve(result);
     },
     handleException: function handleException(exception, context) {
-        var result = Errors(_mirukenCallback.$composer).reportException(exception, context);
+        var result = Errors(mirukenCallback.$composer).reportException(exception, context);
         return result === undefined ? Promise.reject(exception) : Promise.resolve(result);
     },
     reportError: function reportError(error, context) {
@@ -37,14 +33,14 @@ var ErrorCallbackHandler = exports.ErrorCallbackHandler = _mirukenCallback.Callb
     clearErrors: function clearErrors(context) {}
 });
 
-_mirukenCallback.CallbackHandler.implement({
+mirukenCallback.Handler.implement({
     $recover: function $recover(context) {
         return this.filter(function (callback, composer, proceed) {
             try {
                 var handled = proceed();
                 if (handled) {
                     var result = callback.callbackResult;
-                    if ((0, _mirukenCore.$isPromise)(result)) {
+                    if (mirukenCore.$isPromise(result)) {
                         callback.callbackResult = result.catch(function (err) {
                             return Errors(composer).handleError(err, context);
                         });
@@ -65,3 +61,6 @@ _mirukenCallback.CallbackHandler.implement({
         };
     }
 });
+
+exports.Errors = Errors;
+exports.ErrorHandler = ErrorHandler;
