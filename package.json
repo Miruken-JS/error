@@ -23,6 +23,8 @@
     },
     "dependencies": {
       "babel-core": "^6.16.0",
+      "miruken-context": "^0.0.1",
+      "miruken-core": "^0.0.1",
       "reflect-metadata": "^0.1.8"
     },
     "devDependencies": {
@@ -69,6 +71,7 @@
     "karma-mocha": "^0.1.10",
     "karma-mocha-reporter": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
+    "miruken-tools": "0.0.2",
     "mocha": "^2.1.0",
     "require-dir": "^0.3.0",
     "rollup-plugin-babel": "^2.6.1",
