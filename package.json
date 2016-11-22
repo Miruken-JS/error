@@ -1,6 +1,6 @@
 {
   "name": "miruken-error",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "registry": "npm",
   "description": "Provides generalized error support",
   "keywords": [
@@ -31,9 +31,9 @@
     }
   },
   "dependencies": {
-      "miruken-callback": "0.0",
-      "miruken-context": "0.0",
-      "miruken-core": "0.0"
+    "miruken-callback": "0.0",
+    "miruken-context": "0.0",
+    "miruken-core": "0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
