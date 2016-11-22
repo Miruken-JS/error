@@ -61,4 +61,4 @@ mirukenCallback.Handler.implement({
 exports.Errors = Errors;
 exports.ErrorHandler = ErrorHandler;
 
-}((this.miruken-error = this.miruken-error || {}),mirukenCore,mirukenCallback));
+}((this.mirukenError = this.mirukenError || {}),mirukenCore,mirukenCallback));
