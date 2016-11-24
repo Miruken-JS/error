@@ -1,6 +1,6 @@
 {
   "name": "miruken-error",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "registry": "npm",
   "description": "Provides generalized error support",
   "keywords": [
