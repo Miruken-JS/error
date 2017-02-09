@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var mirukenCore = require('miruken-core');
 var mirukenCallback = require('miruken-callback');
 
-var Errors = mirukenCore.Protocol.extend({
+var Errors = mirukenCore.DuckTyping.extend({
     handleError: function handleError(error, context) {},
     handleException: function handleException(exception, context) {},
     reportError: function reportError(error, context) {},

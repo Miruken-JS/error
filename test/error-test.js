@@ -53,7 +53,7 @@ describe("Handler", () => {
         processPayment(payment) {}
     });
 
-    var Paymentech = Base.extend({
+    var Paymentech = Base.extend(Payments, {
         validateCard(card) {
             if (card.number.length < 10)
                 throw new Error("Card number must have at least 10 digits");

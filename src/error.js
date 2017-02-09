@@ -1,4 +1,4 @@
-import { Protocol, $isPromise } from "miruken-core";
+import { DuckTyping, $isPromise } from "miruken-core";
 import { Handler, $composer } from "miruken-callback";
 
 /**
@@ -6,7 +6,7 @@ import { Handler, $composer } from "miruken-callback";
  * @class Errors
  * @extends Protocol
  */    
-export const Errors = Protocol.extend({
+export const Errors = DuckTyping.extend({
     /**
      * Handles an error.
      * @method handlerError

@@ -1,7 +1,7 @@
 (function (exports,mirukenCore,mirukenCallback) {
 'use strict';
 
-var Errors = mirukenCore.Protocol.extend({
+var Errors = mirukenCore.DuckTyping.extend({
     handleError: function handleError(error, context) {},
     handleException: function handleException(exception, context) {},
     reportError: function reportError(error, context) {},

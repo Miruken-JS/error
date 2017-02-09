@@ -1,7 +1,7 @@
-import { $isPromise, Protocol } from 'miruken-core';
+import { $isPromise, DuckTyping } from 'miruken-core';
 import { $composer, Handler } from 'miruken-callback';
 
-var Errors = Protocol.extend({
+var Errors = DuckTyping.extend({
     handleError: function handleError(error, context) {},
     handleException: function handleException(exception, context) {},
     reportError: function reportError(error, context) {},
