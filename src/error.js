@@ -88,6 +88,9 @@ Handler.implement({
         return this.filter((callback, composer, proceed) => {
             try {
                 const handled = proceed();
+                if (!("callbackResult" in callback)) {
+                    return handled;
+                }
                 if (handled) {
                     const result = callback.callbackResult;
                     if ($isPromise(result)) {
