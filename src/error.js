@@ -1,5 +1,10 @@
-import { DuckTyping, $isPromise } from "miruken-core";
-import { Handler, $composer } from "miruken-callback";
+import { 
+    DuckTyping, conformsTo, $isPromise
+} from "miruken-core";
+
+import { 
+    Handler, $getComposer
+} from "miruken-callback";
 
 /**
  * Protocol for handling and reporting errors.
@@ -53,29 +58,34 @@ export const Errors = DuckTyping.extend({
  * @extends Handler
  * @uses Errors
  */    
-export const ErrorHandler = Handler.extend(Errors, {
+@conformsTo(Errors)
+export class ErrorHandler extends Handler {
     handleError(error, context) {
-        const result = Errors($composer).reportError(error, context);
+        const result = Errors($getComposer()).reportError(error, context);
         return result === undefined
              ? Promise.reject(error)
              : Promise.resolve(result);
-    },
+    }
+
     handleException(exception, context) {
-        const result = Errors($composer).reportException(exception, context);
+        const result = Errors($getComposer()).reportException(exception, context);
         return result === undefined
              ? Promise.reject(exception)
              : Promise.resolve(result);
-    },                                                      
+    }
+
     reportError(error, context) {
         console.error(error);
         return Promise.resolve();
-    },
+    }
+
     reportException(exception, context) {
         console.error(exception);
         return Promise.resolve();
-    },
+    }
+
     clearErrors(context) {} 
-});
+}
 
 Handler.implement({
     /**

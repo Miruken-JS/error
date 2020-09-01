@@ -1,0 +1,61 @@
+{
+  "resolve": {
+    "@jspm/core": "npm:@jspm/core@1.1.1",
+    "chai": "npm:chai@4.2.0",
+    "miruken-callback": "npm:miruken-callback@0.0.5-alpha.54",
+    "miruken-context": "npm:miruken-context@0.0.5-alpha.25",
+    "miruken-core": "npm:miruken-core@0.0.5-alpha.40"
+  },
+  "dependencies": {
+    "npm:@jspm/core@1.1.1": {
+      "source": "https://registry.npmjs.org/@jspm/core/-/core-1.1.1.tgz#sha512-5JjuDSzcxuxgzJ/+ynA7bcqZkI9CdDBERXOnDGdhphxNfmd4PkNl0RDE4hUH0+n8yEaz08Tdmjgxe7tlX3LmRA=="
+    },
+    "npm:assertion-error@1.1.0": {
+      "source": "https://registry.npmjs.org/assertion-error/-/assertion-error-1.1.0.tgz#sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw=="
+    },
+    "npm:chai@4.2.0": {
+      "source": "https://registry.npmjs.org/chai/-/chai-4.2.0.tgz#sha512-XQU3bhBukrOsQCuwZndwGcCVQHyZi53fQ6Ys1Fym7E4olpIqqZZhhoFJoaKVvV17lWQoXYwgWN2nF5crA8J2jw==",
+      "resolve": {
+        "deep-eql": "npm:deep-eql@3.0.1",
+        "get-func-name": "npm:get-func-name@2.0.0",
+        "assertion-error": "npm:assertion-error@1.1.0",
+        "type-detect": "npm:type-detect@4.0.8",
+        "check-error": "npm:check-error@1.0.2",
+        "pathval": "npm:pathval@1.1.0"
+      }
+    },
+    "npm:check-error@1.0.2": {
+      "source": "https://registry.npmjs.org/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
+    },
+    "npm:deep-eql@3.0.1": {
+      "source": "https://registry.npmjs.org/deep-eql/-/deep-eql-3.0.1.tgz#sha512-+QeIQyN5ZuO+3Uk5DYh6/1eKO0m0YmJFGNmFHGACpf1ClL1nmlV/p4gNgbl2pJGxgXb4faqo6UE+M5ACEMyVcw==",
+      "resolve": {
+        "type-detect": "npm:type-detect@4.0.8"
+      }
+    },
+    "npm:get-func-name@2.0.0": {
+      "source": "https://registry.npmjs.org/get-func-name/-/get-func-name-2.0.0.tgz#ead774abee72e20409433a066366023dd6887a41"
+    },
+    "npm:miruken-callback@0.0.5-alpha.54": {
+      "source": "https://registry.npmjs.org/miruken-callback/-/miruken-callback-0.0.5-alpha.54.tgz#sha512-rhpRHWv7EDll4UTu/kTYZHA3JJvsog2uOmxn6wkl16lrumVj4dKlt2BJXzx90YO/qPPHdFBom/ZpMqmKrEiRYg=="
+    },
+    "npm:miruken-context@0.0.5-alpha.25": {
+      "source": "https://registry.npmjs.org/miruken-context/-/miruken-context-0.0.5-alpha.25.tgz#sha512-WcqcOrdlc9IlgbkRj6oxUgCux1BwG/hz4f4KPbhx9crwWXCeLUZGL79YNwKgDKXqPhw9wjY8G59d7dWUAGiuzQ=="
+    },
+    "npm:miruken-core@0.0.5-alpha.40": {
+      "source": "https://registry.npmjs.org/miruken-core/-/miruken-core-0.0.5-alpha.40.tgz#sha512-mwVfiKV/RS8ButioyxT0I4efC3plSVZG6G7sK8zJmnV+BTcWhqXy8iJbVbAulxl5o+y+8JHDez4QvzC+dwsWbA==",
+      "resolve": {
+        "reflect-metadata": "npm:reflect-metadata@0.1.13"
+      }
+    },
+    "npm:pathval@1.1.0": {
+      "source": "https://registry.npmjs.org/pathval/-/pathval-1.1.0.tgz#b942e6d4bde653005ef6b71361def8727d0645e0"
+    },
+    "npm:reflect-metadata@0.1.13": {
+      "source": "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.13.tgz#sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg=="
+    },
+    "npm:type-detect@4.0.8": {
+      "source": "https://registry.npmjs.org/type-detect/-/type-detect-4.0.8.tgz#sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g=="
+    }
+  }
+}
