@@ -3,7 +3,7 @@ import {
 } from "miruken-core";
 
 import { 
-    Handler, $getComposer
+    Handler, $composer
 } from "miruken-callback";
 
 /**
@@ -61,14 +61,14 @@ export const Errors = DuckTyping.extend({
 @conformsTo(Errors)
 export class ErrorHandler extends Handler {
     handleError(error, context) {
-        const result = Errors($getComposer()).reportError(error, context);
+        const result = Errors($composer).reportError(error, context);
         return result === undefined
              ? Promise.reject(error)
              : Promise.resolve(result);
     }
 
     handleException(exception, context) {
-        const result = Errors($getComposer()).reportException(exception, context);
+        const result = Errors($composer).reportException(exception, context);
         return result === undefined
              ? Promise.reject(exception)
              : Promise.resolve(result);
